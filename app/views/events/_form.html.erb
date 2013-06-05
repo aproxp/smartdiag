@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
   <div class="field">
     <%= f.label :entered_at %><br />
     <%= f.datetime_select :entered_at %>

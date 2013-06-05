@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>User</th>
     <th>Entered at</th>
     <th>Event type</th>
     <th>Body part</th>
@@ -19,6 +20,7 @@
 
 <% @events.each do |event| %>
   <tr>
+    <td><%= event.user_id %></td>
     <td><%= event.entered_at %></td>
     <td><%= event.event_type %></td>
     <td><%= event.body_part %></td>
