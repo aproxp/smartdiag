@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Entered at:</b>
+  <%= @event.entered_at %>
+</p>
+
+<p>
+  <b>Event type:</b>
+  <%= @event.event_type %>
+</p>
+
+<p>
+  <b>Body part:</b>
+  <%= @event.body_part %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @event.level %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @event.description %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @event.quantity %>
+</p>
+
+<p>
+  <b>Temperature:</b>
+  <%= @event.temperature %>
+</p>
+
+<p>
+  <b>Drugs:</b>
+  <%= @event.drugs %>
+</p>
+
+<p>
+  <b>Activity type:</b>
+  <%= @event.activity_type %>
+</p>
+
+<p>
+  <b>Activity since:</b>
+  <%= @event.activity_since %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

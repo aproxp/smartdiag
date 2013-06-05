@@ -1,0 +1,57 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :entered_at %><br />
+    <%= f.datetime_select :entered_at %>
+  </div>
+  <div class="field">
+    <%= f.label :event_type %><br />
+    <%= f.number_field :event_type %>
+  </div>
+  <div class="field">
+    <%= f.label :body_part %><br />
+    <%= f.number_field :body_part %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br />
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.number_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :temperature %><br />
+    <%= f.number_field :temperature %>
+  </div>
+  <div class="field">
+    <%= f.label :drugs %><br />
+    <%= f.text_field :drugs %>
+  </div>
+  <div class="field">
+    <%= f.label :activity_type %><br />
+    <%= f.number_field :activity_type %>
+  </div>
+  <div class="field">
+    <%= f.label :activity_since %><br />
+    <%= f.datetime_select :activity_since %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

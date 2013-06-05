@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  entered_at: 2013-06-05 17:01:32
+  event_type: 1
+  body_part: 1
+  level: 1
+  description: 1
+  quantity: 1
+  temperature: 1
+  drugs: MyString
+  activity_type: 1
+  activity_since: 2013-06-05 17:01:32
+
+two:
+  entered_at: 2013-06-05 17:01:32
+  event_type: 1
+  body_part: 1
+  level: 1
+  description: 1
+  quantity: 1
+  temperature: 1
+  drugs: MyString
+  activity_type: 1
+  activity_since: 2013-06-05 17:01:32
