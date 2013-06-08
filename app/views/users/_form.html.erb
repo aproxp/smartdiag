@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :bdate %><br />
-    <%= f.date_select :bdate %>
+    <%= f.date_select :bdate, order: [:day, :month, :year], start_year: 1900, end_year: Time.now.year %>
   </div>
   <div class="field">
     <%= f.label :weight %><br />

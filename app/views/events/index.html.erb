@@ -19,7 +19,7 @@
   </tr>
 
 <% @events.each do |event| %>
-  <tr>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= event.user_id %></td>
     <td><%= event.entered_at %></td>
     <td><%= event.event_type %></td>
@@ -31,9 +31,9 @@
     <td><%= event.drugs %></td>
     <td><%= event.activity_type %></td>
     <td><%= event.activity_since %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td class="list_actions"><%= link_to 'Show', event %></td>
+    <td class="list_actions"><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td class="list_actions"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
