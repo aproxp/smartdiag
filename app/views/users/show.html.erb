@@ -1,3 +1,46 @@
+<head>
+<script>
+
+  $(document).ready(function() {
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      editable: false,
+      events: [
+
+        <% @user.events.each do |event| %>
+          {
+          title: '<%= EVENT_TYPE[event.event_type] %>',
+          start: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>),
+          end: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour+1 %>, <%= event.entered_at.min %>),
+          allDay: false,
+        },
+        <% end %>
+        <% @user.events.each do |event| %>
+          {
+          title: '<%= ACTIVITY_TYPE[event.activity_type] %>',
+          start: new Date(<%= event.activity_since.year %>, <%= event.activity_since.month-1 %>, <%= event.activity_since.day %>, <%= event.activity_since.hour %>, <%= event.activity_since.min %>),
+          end: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>),
+          allDay: false,
+        },
+        <% end %>
+        ]
+    });
+
+  });
+
+</script>
+</head>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -64,6 +107,8 @@
 
 
 </table>
+
+<div id='calendar'></div>
   
 
 
