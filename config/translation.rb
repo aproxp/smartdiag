@@ -1,0 +1,5 @@
+EVENT_TYPE = ["Pain", "Meal", "Medicine"]
+BODY_PART = [nil, "Left Hand", "Left Leg", "Head", "Chest", "Belly", "Right Leg", "Right Hand"]
+DESCRIPTION = [nil, "no", "idea", "what", "to"]
+QUANTITY = [nil, "Big", "Medium", "Small"]
+TEMPERATURE = [nil, "Hot", "Cold"]

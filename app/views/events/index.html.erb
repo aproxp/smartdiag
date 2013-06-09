@@ -22,12 +22,12 @@
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= event.user_id %></td>
     <td><%= event.entered_at %></td>
-    <td><%= event.event_type %></td>
-    <td><%= event.body_part %></td>
+    <td><%= EVENT_TYPE[event.event_type] %></td>
+    <td><%= BODY_PART[event.body_part.to_i] %></td>
     <td><%= event.level %></td>
-    <td><%= event.description %></td>
-    <td><%= event.quantity %></td>
-    <td><%= event.temperature %></td>
+    <td><%= DESCRIPTION[event.description.to_i] %></td>
+    <td><%= QUANTITY[event.quantity.to_i] %></td>
+    <td><%= TEMPERATURE[event.temperature.to_i] %></td>
     <td><%= event.drugs %></td>
     <td><%= event.activity_type %></td>
     <td><%= event.activity_since %></td>
