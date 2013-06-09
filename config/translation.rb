@@ -3,3 +3,4 @@ BODY_PART = [nil, "Left Hand", "Left Leg", "Head", "Chest", "Belly", "Right Leg"
 DESCRIPTION = [nil, "no", "idea", "what", "to"]
 QUANTITY = [nil, "Big", "Medium", "Small"]
 TEMPERATURE = [nil, "Hot", "Cold"]
+ACTIVITY_TYPE = [nil, "Running", "Walking", "Standing"]

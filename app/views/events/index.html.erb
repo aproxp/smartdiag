@@ -29,7 +29,7 @@
     <td><%= QUANTITY[event.quantity.to_i] %></td>
     <td><%= TEMPERATURE[event.temperature.to_i] %></td>
     <td><%= event.drugs %></td>
-    <td><%= event.activity_type %></td>
+    <td><%= ACTIVITY_TYPE[event.activity_type.to_i] %></td>
     <td><%= event.activity_since %></td>
     <td class="list_actions"><%= link_to 'Show', event %></td>
     <td class="list_actions"><%= link_to 'Edit', edit_event_path(event) %></td>
