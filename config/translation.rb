@@ -1,6 +1,6 @@
 EVENT_TYPE = ["Pain", "Meal", "Medicine"]
 BODY_PART = [nil, "Left Hand", "Left Leg", "Head", "Chest", "Belly", "Right Leg", "Right Hand"]
 DESCRIPTION = [nil, "Throbbing", "Drilling", "Excruciating", "Burning"]
-QUANTITY = [nil, "Big", "Medium", "Small"]
+QUANTITY = [nil, "Large", "Medium", "Small"]
 TEMPERATURE = [nil, "Hot", "Cold"]
 ACTIVITY_TYPE = [nil, "Steady", "Walking", "Biking", "Running"]

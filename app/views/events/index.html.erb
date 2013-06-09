@@ -1,6 +1,6 @@
 <h1>Listing events</h1>
 
-<table>
+<table class="table table-condensed table-hover table-striped">
   <tr>
     <th>User</th>
     <th>Entered at</th>
@@ -19,7 +19,7 @@
   </tr>
 
 <% @events.each do |event| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+  <tr>
     <td><%= event.user_id %></td>
     <td><%= event.entered_at %></td>
     <td><%= EVENT_TYPE[event.event_type] %></td>

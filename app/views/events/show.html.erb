@@ -12,12 +12,12 @@
 
 <p>
   <b>Event type:</b>
-  <%= @event.event_type %>
+  <%= EVENT_TYPE[@event.event_type] %>
 </p>
 
 <p>
   <b>Body part:</b>
-  <%= @event.body_part %>
+  <%= BODY_PART[@event.body_part.to_i] %>
 </p>
 
 <p>
@@ -27,17 +27,17 @@
 
 <p>
   <b>Description:</b>
-  <%= @event.description %>
+  <%= DESCRIPTION[@event.description.to_i] %>
 </p>
 
 <p>
   <b>Quantity:</b>
-  <%= @event.quantity %>
+  <%= QUANTITY[@event.quantity.to_i] %>
 </p>
 
 <p>
   <b>Temperature:</b>
-  <%= @event.temperature %>
+  <%= TEMPERATURE[@event.temperature.to_i] %>
 </p>
 
 <p>
@@ -47,7 +47,7 @@
 
 <p>
   <b>Activity type:</b>
-  <%= @event.activity_type %>
+  <%= ACTIVITY_TYPE[@event.activity_type.to_i] %>
 </p>
 
 <p>

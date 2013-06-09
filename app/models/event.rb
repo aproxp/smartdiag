@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
 
   validates :quantity, :temperature, presence: true, if: :is_type_1?
   validates :quantity, inclusion: { in: (1..3)}, if: :is_type_1?
-  validates :temperature, inclusion: { in: (1..3)}, if: :is_type_1?
+  validates :temperature, inclusion: { in: (1..2)}, if: :is_type_1?
   validates :drugs, :body_part, :description, :level, length: {is: 0, message: "must be empty"}, if: :is_type_1?
 
   validates :drugs, presence: true, if: :is_type_2?
