@@ -5,6 +5,14 @@ class Event < ActiveRecord::Base
   # :entered_at, :event_type, :activity_since,
   validates :event_type, inclusion: { in: (0..4) }
 
+  def get_start_datetime_calendar
+    self.entered_at.year.to_s << ', ' << (self.entered_at.month-1).to_s << ', ' << self.entered_at.day.to_s << ', ' << self.entered_at.hour.to_s << ', ' << self.entered_at.min.to_s
+  end
+
+  def get_end_datetime_calendar
+    self.entered_at.year.to_s << ', ' << (self.entered_at.month-1).to_s << ', ' << self.entered_at.day.to_s << ', ' << (self.entered_at.hour+1).to_s << ', ' << self.entered_at.min.to_s
+  end
+  # <%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>
   # validates :body_part, :description, :level, presence: true, if: :is_type_0?
   # validates :body_part, inclusion: { in: (1..7)}, if: :is_type_0?
   # validates :description, inclusion: { in: (1..4)}, if: :is_type_0?

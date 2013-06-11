@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require fullcalendar
+//= require highcharts 
+//= require exporting 
 //= require_tree .

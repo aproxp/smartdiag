@@ -14,6 +14,24 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @time_now = Time.now.utc
+
+    @data = Array.new
+    @user.events.each do |event|
+        if event.event_type == 3
+          date_start = (event.activity_since.utc.to_f*1000.0).to_i
+          date_end = (event.entered_at.utc.to_f*1000.0).to_i
+          @data = @data << [date_start, event.activity_type] << [date_end, event.activity_type]
+        end
+    end
+
+
+    @h = LazyHighCharts::HighChart.new('graph') do |f|
+      f.options[:chart][:defaultSeriesType] = 'spline'
+      f.title( text: @user.first_name + " " + @user.last_name + ' ' + 'activity')
+      f.xAxis type: 'datetime'
+      f.series(:name=>'Activity', :data=>@data,  pointStart: (Time.now.utc.at_midnight.to_f*1000.0).to_i)
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -80,4 +98,9 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def chart_gen
+
+  end
+
 end

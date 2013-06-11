@@ -18,28 +18,23 @@
       events: [
 
         <% @user.events.each do |event| %>
-          {
-          title: '<%= EVENT_TYPE[event.event_type] %>',
-          start: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>),
-          end: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour+1 %>, <%= event.entered_at.min %>),
-          allDay: false,
-          url: '<%= user_event_path(@user,event) %>'
-        },
+          <% unless event.event_type == 3 %>
+            {
+            title: '<%= EVENT_TYPE[event.event_type] %>',
+            start: new Date(<%= event.get_start_datetime_calendar if event %>),
+            end: new Date(<%= event.get_end_datetime_calendar %>),
+            allDay: false,
+            url: '<%= user_event_path(@user,event) %>'
+            },
+          <% end %>
         <% end %>
-        // <% @user.events.each do |event| %>
-        //   {
-        //   title: '<%= ACTIVITY_TYPE[event.activity_type] %>',
-        //   start: new Date(<%= event.activity_since.year %>, <%= event.activity_since.month-1 %>, <%= event.activity_since.day %>, <%= event.activity_since.hour %>, <%= event.activity_since.min %>),
-        //   end: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>),
-        //   allDay: false,
-        // },
-        // <% end %>
         ]
     });
 
   });
 
 </script>
+
 </head>
 
 <p id="notice"><%= notice %></p>
@@ -109,9 +104,15 @@
 
 </table>
 
-<div id='calendar'></div>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+<div class="row">
+<div class="span6">
+<%= high_chart("chart", @h) %></div>
+<div id='calendar' class="span6"></div>
+</div>
   
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
