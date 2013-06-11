@@ -90,8 +90,10 @@
     <th>Quantity</th>
     <th>Temperature</th>
     <th>Drugs</th>
+    <th>Event description</th>
     <th>Activity type</th>
     <th>Activity since</th>
+    <th></th>
   </tr>
 
 <% @user.events.each do |event| %>
@@ -104,8 +106,10 @@
     <td><%= QUANTITY[event.quantity.to_i] %></td>
     <td><%= TEMPERATURE[event.temperature.to_i] %></td>
     <td><%= event.drugs %></td>
+    <td><%= event.event_description %></td>
     <td><%= ACTIVITY_TYPE[event.activity_type.to_i] %></td>
     <td><%= event.activity_since %></td>
+    <td class="list_actions"><%= link_to 'Show', user_event_path(@user,event) %></td>
   </tr>
 <% end %>
 

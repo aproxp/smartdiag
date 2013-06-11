@@ -16,7 +16,7 @@
     <th>Event Description</th>
     <th></th>
     <!-- <th></th> -->
-    <th></th>
+    <!-- <th></th> -->
   </tr>
 
 <% @events.each do |event| %>
@@ -35,7 +35,7 @@
     <td><%= event.event_description %></td>
     <td class="list_actions"><%= link_to 'Show', event %></td>
    <!--  <td class="list_actions"><%= link_to 'Edit', edit_event_path(event) %></td> -->
-    <td class="list_actions"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <!-- <td class="list_actions"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
   </tr>
 <% end %>
 </table>
