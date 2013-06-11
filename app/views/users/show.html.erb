@@ -69,8 +69,16 @@
   <%= @user.height %>
 </p>
 
-<h2>User's events</h2>
 
+
+  <div class="span10 offset1">
+    <%= high_chart("chart", @h) do |c| %>
+    <%= raw "options.tooltip.formatter = function() {return '<b>' + this.point.name +'</b>';}"  %>
+    <% end %>
+  </div>
+  <br>
+  <br>
+<h2>User's events</h2>
 <table class="table table-condensed table-hover table-striped">
 
    <tr>
@@ -103,16 +111,9 @@
 
 
 </table>
+<br>
+<div id='calendar'></div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
-<div class="row">
-<div class="span6">
-<%= high_chart("chart", @h) %></div>
-<div id='calendar' class="span6"></div>
-</div>
-  
 
 
 
