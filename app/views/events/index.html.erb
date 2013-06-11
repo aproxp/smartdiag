@@ -13,8 +13,9 @@
     <th>Drugs</th>
     <th>Activity type</th>
     <th>Activity since</th>
+    <th>Event Description</th>
     <th></th>
-    <th></th>
+    <!-- <th></th> -->
     <th></th>
   </tr>
 
@@ -31,8 +32,9 @@
     <td><%= event.drugs %></td>
     <td><%= ACTIVITY_TYPE[event.activity_type.to_i] %></td>
     <td><%= event.activity_since %></td>
+    <td><%= event.event_description %></td>
     <td class="list_actions"><%= link_to 'Show', event %></td>
-    <td class="list_actions"><%= link_to 'Edit', edit_event_path(event) %></td>
+   <!--  <td class="list_actions"><%= link_to 'Edit', edit_event_path(event) %></td> -->
     <td class="list_actions"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

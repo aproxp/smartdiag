@@ -1,4 +1,4 @@
-EVENT_TYPE = ["Pain", "Meal", "Medicine"]
+EVENT_TYPE = ["Pain", "Meal", "Medicine", "Activity Change", "Other"]
 BODY_PART = [nil, "Left Hand", "Left Leg", "Head", "Chest", "Belly", "Right Leg", "Right Hand"]
 DESCRIPTION = [nil, "Throbbing", "Drilling", "Excruciating", "Burning"]
 QUANTITY = [nil, "Large", "Medium", "Small"]

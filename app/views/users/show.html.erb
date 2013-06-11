@@ -23,16 +23,17 @@
           start: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>),
           end: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour+1 %>, <%= event.entered_at.min %>),
           allDay: false,
+          url: '<%= user_event_path(@user,event) %>'
         },
         <% end %>
-        <% @user.events.each do |event| %>
-          {
-          title: '<%= ACTIVITY_TYPE[event.activity_type] %>',
-          start: new Date(<%= event.activity_since.year %>, <%= event.activity_since.month-1 %>, <%= event.activity_since.day %>, <%= event.activity_since.hour %>, <%= event.activity_since.min %>),
-          end: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>),
-          allDay: false,
-        },
-        <% end %>
+        // <% @user.events.each do |event| %>
+        //   {
+        //   title: '<%= ACTIVITY_TYPE[event.activity_type] %>',
+        //   start: new Date(<%= event.activity_since.year %>, <%= event.activity_since.month-1 %>, <%= event.activity_since.day %>, <%= event.activity_since.hour %>, <%= event.activity_since.min %>),
+        //   end: new Date(<%= event.entered_at.year %>, <%= event.entered_at.month-1 %>, <%= event.entered_at.day %>, <%= event.entered_at.hour %>, <%= event.entered_at.min %>),
+        //   allDay: false,
+        // },
+        // <% end %>
         ]
     });
 
