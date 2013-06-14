@@ -21,9 +21,9 @@ class UsersController < ApplicationController
     @user.events.each do |event|
       if event.event_type == 3
         date_start = (event.activity_since.utc.to_f*1000.0).to_i
-        date_end = (event.entered_at.utc.to_f*1000.0).to_i
+        # date_end = (event.entered_at.utc.to_f*1000.0).to_i
         @activity_data.push({x: date_start, y: event.activity_type, name: ACTIVITY_TYPE[event.activity_type]})
-        @activity_data.push({x: date_end, y: event.activity_type, name: ACTIVITY_TYPE[event.activity_type]})
+        # @activity_data.push({x: date_end, y: event.activity_type, name: ACTIVITY_TYPE[event.activity_type]})
       else
         date = (event.entered_at.utc.to_f*1000.0).to_i
         @event_data.push({x: date, y: (event.event_type+6), name: EVENT_TYPE[event.event_type]})
@@ -35,16 +35,20 @@ class UsersController < ApplicationController
       f.chart( zoomType: 'x')
       f.title( text: @user.first_name + " " + @user.last_name + ' ' + 'activity and events')
       f.tooltip(
-        useHTML: true,
-        headerFormat: '<small>{point.key}</small><table>',
-        pointFormat: "<tr><td style=\"color: {series.color}\">{series.name}: </td>" + "<td style=\"text-align: right\"><b>{point.y}</b></td></tr>",
-        crosshairs: true,
-      footerFormat: '</table>')
+      #           useHTML: true,
+      #           headerFormat: '<small>{point.key} + {point.name} </small><table>',
+      #           pointFormat: "<tr><td style=\"color: {series.color}\">{series.name}: </td>" + "<td style=\"text-align: right\"><b>{point.y}</b></td></tr>",
+                crosshairs: true,
+                followPointer: true,
+                xDateFormat: '%Y-%m-%d',
+                shared: true,
+      #           footerFormat: '</table>'
+                )
 
       f.yAxis(
         min: 0,
         max: 11,
-        categories: [nil, "Steady", "Walking", "Biking", "Running", nil, "Pain", "Meal", "Medicine", "Activity Change", "Other"],
+        categories: [nil, "Steady", "Walking", "Biking", "Running", "", "Pain", "Meal", "Medicine", "Activity Change", "Other", ""],
         minorGridLineWidth: 1,
         gridLineWidth: 1,
         alternateGridColor: nil,
@@ -76,8 +80,8 @@ class UsersController < ApplicationController
       )
       f.xAxis type: 'datetime'
 
-      f.series(type: 'line', :name=>'Activity', :data=>@activity_data,  pointStart: (@time_now.to_f*1000.0).to_i)
-      f.series(type: 'scatter', :name=>'Event', :data=>@event_data,  pointStart: (@time_now.to_f*1000.0).to_i)
+      f.series(type: 'line', :name=>'Activity', :data=>@activity_data,  pointStart: (@time_now.to_f*1000.0).to_i, step: "left")
+      f.series(type: 'line', lineWidth: 0, :name=>'Event', :data=>@event_data,  pointStart: (@time_now.to_f*1000.0).to_i)
     end
 
     respond_to do |format|
