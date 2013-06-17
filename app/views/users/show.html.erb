@@ -97,20 +97,22 @@
   </tr>
 
 <% @user.events.each do |event| %>
-  <tr>
-    <td><%= event.entered_at %></td>
-    <td><%= EVENT_TYPE[event.event_type] %></td>
-    <td><%= BODY_PART[event.body_part.to_i] %></td>
-    <td><%= event.level %></td>
-    <td><%= DESCRIPTION[event.description.to_i] %></td>
-    <td><%= QUANTITY[event.quantity.to_i] %></td>
-    <td><%= TEMPERATURE[event.temperature.to_i] %></td>
-    <td><%= event.drugs %></td>
-    <td><%= event.event_description %></td>
-    <td><%= ACTIVITY_TYPE[event.activity_type.to_i] %></td>
-    <td><%= event.activity_since %></td>
-    <td class="list_actions"><%= link_to 'Show', user_event_path(@user,event) %></td>
-  </tr>
+  <% unless event.event_type == 3 %>
+    <tr>
+      <td><%= event.entered_at %></td>
+      <td><%= EVENT_TYPE[event.event_type] %></td>
+      <td><%= BODY_PART[event.body_part.to_i] %></td>
+      <td><%= event.level %></td>
+      <td><%= DESCRIPTION[event.description.to_i] %></td>
+      <td><%= QUANTITY[event.quantity.to_i] %></td>
+      <td><%= TEMPERATURE[event.temperature.to_i] %></td>
+      <td><%= event.drugs %></td>
+      <td><%= event.event_description %></td>
+      <td><%= ACTIVITY_TYPE[event.activity_type.to_i] %></td>
+      <td><%= event.activity_since %></td>
+      <td class="list_actions"><%= link_to 'Show', user_event_path(@user,event) %></td>
+    </tr>
+  <% end %>
 <% end %>
 
 
