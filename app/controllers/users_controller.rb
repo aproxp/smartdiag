@@ -38,8 +38,7 @@ class UsersController < ApplicationController
       #           useHTML: true,
       #           headerFormat: '<small>{point.key} + {point.name} </small><table>',
       #           pointFormat: "<tr><td style=\"color: {series.color}\">{series.name}: </td>" + "<td style=\"text-align: right\"><b>{point.y}</b></td></tr>",
-                crosshairs: true,
-                followPointer: true,
+                crosshairs: true,                followPointer: true,
                 xDateFormat: '%Y-%m-%d',
                 shared: true,
       #           footerFormat: '</table>'
